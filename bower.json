@@ -1,0 +1,25 @@
+{
+  "name": "termProject",
+  "description": "servey_system",
+  "authors": [
+    "ilwol9224 <ilwol9224@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "project"
+  ],
+  "moduleType": [],
+  "homepage": "https://github.com/ilwol9224/webProject",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "fontawesome#~4.4.0",
+    "bourbon": "~4.2.6"
+  }
+}
