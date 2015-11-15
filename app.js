@@ -3,15 +3,20 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var methodOverride = require('method-override');
+var flash = require(connect-flash);
 var bodyParser = require('body-parser');
+var mongoose   = require('mongoose');
+var passport = require('passport');
+var configAuth = require('./config/auth');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var routeAuth = require('./routes/auth');
 
 var app = express();
-var mongoose   = require('mongoose');
-// 본인의 mongodb 접속 URL을 확인해서 id:pwd@server:port/dbname 의 형태로
-// local의 경우 mongodb://localhost/dbname 형태
+
 mongoose.connect('mongodb://hyungyu:75695458g@ds037990.mongolab.com:37990/servey_system');
 mongoose.connection.on('error', console.log);
 
@@ -26,9 +31,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
+app.use('/', routes);
+app.use('/users', users);
+app.use(methodOverride('_method', {methods: ['POST', 'GET']}));
+app.use('/bower_components',  express.static(path.join(__dirname, '/bower_components')));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+configAuth(passport);
 
 app.use('/', routes);
 app.use('/users', users);
+routeAuth(app, passport);
+
+app.use(function(req, res, next) {
+  console.log("REQ USER", req.user);
+  res.locals.currentUser = req.user;
+  res.locals.flashMessages = req.flash();
+  next();
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
