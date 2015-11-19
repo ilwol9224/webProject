@@ -1,7 +1,17 @@
 doctype html
 html
   head
-    title= title
+    title mySurvey
+    meta(charset='UTF-8')
+    meta(name="view-port" content="width=device-width, initial-scale=1")
+    link(rel='text/javascript', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script (src=type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+    script (src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
   body
+    block top-nav
+        include ./include/topnav
     block content
+    
+    block footer
+        include ./includes/footer
