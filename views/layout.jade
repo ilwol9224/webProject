@@ -1,16 +1,19 @@
 doctype html
-html
+html(lang='ko')
   head
-    title mySurvey
-    meta(charset='UTF-8')
+    block title
+        title Survey-system
+    meta(charset='utf-8')
     meta(name="view-port" content="width=device-width, initial-scale=1")
-    link(rel='text/javascript', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script (src=type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
-    script (src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+    link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.min.css')
+    script (type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+    script (type='text/javascript', src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
   body
     block top-nav
-        include ./include/topnav
+        include ./includes/topnav
+    block hero-unit
     block content
     
     block footer
