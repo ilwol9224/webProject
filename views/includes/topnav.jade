@@ -1,42 +1,42 @@
 .navbar.navbar-inverse.navbar-fixed-top
-    .container-fluid
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#myNavbar')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/')
-            i.fa.fa-cube       
-        #myNavbar.collapse.navbar-collapse
-            ul.nav.navbar-nav
-                li.dropdown
-                    a.dropdown-toggle(data-toggle="dropdown", href="#") Survey 
-                        span.caret
-                    ul.dropdown-menu
-                        li
-                            a(href="/new") Design
-                        li
-                            a(href="/index") List
-                        li
-                            a(href="/result") Report
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/')
+        i.fa.fa-cube
+    #myNavbar.collapse.navbar-collapse
+       ul.nav.navbar-nav
+            li
+              a(href='/users') Users
+            li.dropdown
+              a.dropdown-toggle(data-toggle="dropdown", href='#') Survey
+                span.caret
+              ul.dropdown-menu
                 li
-                    a(href="/users/index") Users
-            //- ul.nav.myNavbar-nav.myNavbar-right
-            //-    if(currentUser)
-            //-     li
-            //-         a(href="/users/#{currentUser._id}")
-            //-             span.glyphicon.glyphicon-user
-            //-             | Profile
-            //-     li
-            //-         a(href="/signout")
-            //-             span.glyphicon.glyphicon-log-out
-            //-             | Logout
-            //-     else
-            //-      li
-            //-         a(href="/signin")
-            //-              span.glyphicon.glyphicon-log-in
-            //-              | Login
-            //-      li
-            //-          a(href="/users/new")
-            //-              span.glyphicon.glyphicon-ok-circle
-            //-              | SignUp
+                    a(href="/new") Design
+                li
+                    a(href="/index") List
+                li
+                    a(href="/result") Result
+        ul.nav.navbar-nav.navbar-right
+           if (currentUser)
+                li
+                    a(href="/users/#{currentUser._id}")
+                        span.glyphicon.glyphicon-user 
+                        |  Profile                        
+                li
+                    a(href="/signout")
+                        span.glyphicon.glyphicon-log-out
+                        |  Logout
+            else
+                 li
+                    a(href="/signin")
+                         span.glyphicon.glyphicon-log-in
+                         |  Login
+                 li
+                     a(href="/users/new")
+                         span.glyphicon.glyphicon-ok-circle
+                         |  SignUp

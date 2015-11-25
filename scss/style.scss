@@ -1,41 +1,50 @@
-.signin-form {
-  text-align: center; }
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+@import "./includes/signin";
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin-top: 50px;
-  padding-top: 1em; }
-
+  padding-top: 1em;
+}
 a {
-  color: #00B7FF; }
+  color: #00B7FF
+}
 
 .jumbotron {
-  margin-top: 10em;
-  background: url("/images/survey.jpeg") no-repeat;
+  margin-top: -1em;
+  background: url('/images/survey.jpg') no-repeat;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
-  height: 50em;
-  color: #74C5F7;
-  text-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3); }
+  min-height: 20em;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
 
 .form-actions {
   padding: 19px 20px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
-  border-top: 1px solid #e5e5e5; }
+  border-top: 1px solid #e5e5e5;
+}
 
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #f5f5f5; }
-  .footer .container {
+  background-color: #f5f5f5;
+
+  .container {
     padding-right: 1em;
-    padding-left: 1em; }
-    .footer .container .text-muted {
+    padding-left: 1em;
+
+    .text-muted {
       margin: 20px 0;
-      color: #bbb; }
+      color: #bbb;
+    }
+  }
+}
