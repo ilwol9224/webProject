@@ -1,4 +1,5 @@
-var express = require('express');
+var express = require('express'),
+    User = require('../models/User');
 var router = express.Router();
 
 /* GET users listing. */
@@ -11,6 +12,12 @@ router.get('/', needAuth, function(req, res, next) {
   });
 });
 
+router.get('/', function(req, res, next){
+    if (err) {
+      return next(err);
+    }
+    res.render('index');
+});
 function needAuth(req, res, next) {
   if (req.isAuthenticated()) {
     next();
@@ -105,7 +112,7 @@ router.delete('/:id', function(req, res, next) {
       return next(err);
     }
     req.flash('success', '사용자 계정이 삭제되었습니다.');
-    res.redirect('/users');
+    res.redirect('/');
   });
 });
 
@@ -135,7 +142,7 @@ router.post('/', function(req, res, next) {
     var newUser = new User({
       name: req.body.name,
       email: req.body.email,
-    //   타입 = 사용자지정
+      type: "user",
     });
     newUser.password = newUser.generateHash(req.body.password);
 

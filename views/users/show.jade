@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  .container
+    if (currentUser.type === "admin")    
+        h1.page-header 관리자 정보
+    else
+        h1.page-header 사용자 정보
+    ul
+      li 이름: #{user.name}
+      li 이메일: #{user.email}
+      if user.facebook
+        li Facebook 
+          img.img-circle(src='#{user.facebook.photo}')
+    hr
+    p
+    if (currentUser.type === "admin")
+        a.btn.btn-default(href='/users/') 목록
+    | 
+    a.btn.btn-default(href='/users/#{user._id}/edit') 회원정보수정
+    | 
+    a.btn.btn-default(href='/users/#{user._id}?_method=DELETE') 회원탈퇴

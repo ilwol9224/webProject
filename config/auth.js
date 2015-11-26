@@ -40,7 +40,7 @@ var LocalStrategy = require('passport-local').Strategy,
      passport.use(new FacebookStrategy({
 
     clientID : '797117657066339',
-    clientSecret : 'cf069cdf50126fb138e9c2311e5bc35f',
+    clientSecret : '1f85f387a36506bcc7198fd59987a39d',
     callbackURL : 'http://localhost:3000/auth/facebook/callback',
     profileFields : ["emails", "displayName", "name", "photos"]
   }, function(token, refreshToken, profile, done) {

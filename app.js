@@ -11,8 +11,11 @@ var mongoose   = require('mongoose');
 var passport = require('passport');
 var configAuth = require('./config/auth');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./routes/index'),
+    users = require('./routes/users');
+    // todos = require('./routes/todos'),
+    // tasks = require('./routes/tasks');
+
 var routeAuth = require('./routes/auth');
 
 var app = express();
@@ -26,7 +29,7 @@ if (app.get('env') === 'development') {
 app.locals.moment = require('moment');
 
 // mongodb connect
-mongoose.connect('mongodb://user:asdasd@ds041394.mongolab.com:41394/nodewp');
+mongoose.connect('ilwol:75695458g@ds037990.mongolab.com:37990/servey_system');
 mongoose.connection.on('error', console.log);
 
 // uncomment after placing your favicon in /public
@@ -51,7 +54,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(function(req, res, next) {
-  console.log("REQ USER", req.user);
   res.locals.currentUser = req.user;
   res.locals.flashMessages = req.flash();
   next();
@@ -60,7 +62,9 @@ app.use(function(req, res, next) {
 configAuth(passport);
 
 app.use('/', routes);
-// app.use('/users', users);
+app.use('/users', users);
+// app.use('/todos', todos);
+// app.use('/tasks', tasks);
 routeAuth(app, passport);
 
 // catch 404 and forward to error handler
