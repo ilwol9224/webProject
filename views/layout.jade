@@ -15,13 +15,13 @@ html(lang='ko')
     block top-nav
      include ./includes/topnav
     block hero-unit
-    if flashMessages
-     each texts, type in flashMessages
-       .container
-         .alert(class='alert-#{type}')
-           each msg in texts
-             p= msg           
-    block content
+        if flashMessages
+         each texts, type in flashMessages
+           .container
+             .alert(class='alert-#{type}')
+               each msg in texts
+                 p= msg           
+        block content
 
     block footer
      include ./includes/footer

@@ -1,0 +1,21 @@
+form#form-task.form-inline(class='surveys')
+  .form
+    .main
+      input(type='text', id='title', name='title', placeholder='설문지-제목')
+      input(type='text', id='content', name='content', placeholder='설명')
+      | 
+      | 
+    .submain
+      input(type='text', id='content', name='content', placeholder='질문 제목')
+
+    .form-group
+        select.form-control(name='category')
+            option(value='객관식(단일선택형)') 객관식(단일선택형)
+            option(value='객관식(복수선택형)') 객관식(복수선택형)
+            option(value='단일입력') 단일입력
+            option(value='의견입력') 의견입력
+    .form-group
+            input(type="checkbox", name="others")
+            | 기타      
+  .actions
+      button#post-task.btn.btn-primary.btn-lg.btn-block(type='button') 저장
