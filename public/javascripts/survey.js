@@ -1,16 +1,19 @@
 var SurveyController = function() {
-        function reset(){
+        function resetAll(){
             $('.others > label').empty();
             $('.addSelector').empty();
             document.getElementById('selectbar').value = "default";
             $('.addQuest').empty();
+            $('.selectbar').fadeIn();
+            $('.plusOpinion').remove();
+            $('.others').fadeIn();
         }
 
         var Constructor = function () {
             $('#reset').click(function(event) {
                 /* Act on the event */
-                $('.selectbar').fadeIn();
-                reset();
+
+                resetAll();
             });
 
             $("#selectbar").change(function(event) {
@@ -40,6 +43,17 @@ var SurveyController = function() {
                     longText.setAttribute('placeholder', '의견입력');
                     $('.addQuest').append(longText);
                 }
+
+                $('.others :checkbox').click(function(event) {
+                    /* Act on the event */
+                    var self = $(this);
+                    if(self.is(':checked')){
+                        var input = document.createElement("INPUT");
+                        input.setAttribute('class', 'plusOpinion');
+                        $('.addQuest').after(input);
+                        $('.others').fadeOut();
+                    }
+                });
 
                 $('#addButton').click(function(event) {
                     /* Act on the event */
