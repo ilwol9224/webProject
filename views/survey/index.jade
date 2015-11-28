@@ -3,20 +3,43 @@ form#form-task.form-inline(class='surveys')
     .main
       input(type='text', id='title', name='title', placeholder='설문지-제목')
       input(type='text', id='content', name='content', placeholder='설명')
+      hr
       | 
       | 
     .submain
       input(type='text', id='content', name='content', placeholder='질문 제목')
-
-    .form-group
-        select.form-control(name='category')
-            option(value='객관식(단일선택형)') 객관식(단일선택형)
-            option(value='객관식(복수선택형)') 객관식(복수선택형)
+    .form-group(class = 'selectbar')
+        select.form-control#selectbar(name='category')
+            option(value="default") 조건을 선택해주세요.
+            option(value='multiple-one') 객관식(단일선택형)
+            option(value='multiple-many') 객관식(복수선택형)
             option(value='단일입력') 단일입력
             option(value='의견입력') 의견입력
-    .form-group
-            input(type="checkbox", name="others")
-            | 기타
-  .actions
-        button.btn.btn-success.btn-lg.btn-block(type='button') 질문추가
-        button#post-task.btn.btn-primary.btn-lg.btn-block(type='button') 저장
+    .form-group.others
+        label
+    .actions    
+        button#plus-quest.btn.btn-success.btn-lg.btn-block(type='button') 질문추가
+    .addquest
+    .actions
+        button#post-survey.btn.btn-primary.btn-lg.btn-block(type='button') 작성완료
+
+script.
+    $(function(){
+        $("#plus-quest").click(function(event) {
+            /* Act on the event */
+            alert("test!");
+        });
+        
+        $("#selectbar").change(function(event) {
+            /* Act on the event */
+            var selected = document.getElementById("selectbar").value;
+            if(selected == "multiple-many" || selected == "multiple-one"){
+                var x = document.createElement("INPUT");
+                x.setAttribute("type", "checkbox");
+                $(".others > label").append(x).append("기타");
+            }
+            else {
+                $('.others > label').empty();
+            }
+        });
+    });
