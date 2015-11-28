@@ -13,33 +13,20 @@ form#form-task.form-inline(class='surveys')
             option(value="default") 조건을 선택해주세요.
             option(value='multiple-one') 객관식(단일선택형)
             option(value='multiple-many') 객관식(복수선택형)
-            option(value='단일입력') 단일입력
-            option(value='의견입력') 의견입력
-    .form-group.others
+            option(value='shortText') 단일입력
+            option(value='longText') 의견입력
+    .addSelector
+    .others
         label
+    .addQuest
+    .actions#reset
+        button.btn.btn-default.btn-lg.btn-block(type='button') 다시작성
     .actions    
-        button#plus-quest.btn.btn-success.btn-lg.btn-block(type='button') 질문추가
-    .addquest
+        button#plus-quest.btn.btn-success.btn-lg.btn-block(type='button') 문항추가
     .actions
         button#post-survey.btn.btn-primary.btn-lg.btn-block(type='button') 작성완료
 
 script.
-    $(function(){
-        $("#plus-quest").click(function(event) {
-            /* Act on the event */
-            alert("test!");
-        });
-        
-        $("#selectbar").change(function(event) {
-            /* Act on the event */
-            var selected = document.getElementById("selectbar").value;
-            if(selected == "multiple-many" || selected == "multiple-one"){
-                var x = document.createElement("INPUT");
-                x.setAttribute("type", "checkbox");
-                $(".others > label").append(x).append("기타");
-            }
-            else {
-                $('.others > label').empty();
-            }
-        });
+    $(function() {
+        var survey = new SurveyController();    
     });

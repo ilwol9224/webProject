@@ -11,7 +11,7 @@ function needAuth(req, res, next) {
   }
 }
 
-router.get('/', needAuth, function(req, res, next) {
+router.get('/', function(req, res, next) {
   Survey.find({}, function(err, surveys) {
     if (err) {
       return next(err);
