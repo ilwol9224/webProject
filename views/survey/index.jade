@@ -1,4 +1,4 @@
-form#form-task.form-inline(class='surveys')
+form.form-inline(class='surveys')
   .form
     .main
       input(type='text', id='title', name='title', placeholder='설문지-제목')
@@ -6,8 +6,11 @@ form#form-task.form-inline(class='surveys')
       hr
       | 
       | 
+    .actions#reset
+        button.btn.btn-default.btn-lg.btn-block(type='button') 다시작성  
+    hr
     .submain
-      input(type='text', id='content', name='content', placeholder='질문 제목')
+        input(type='text', id='content', name='content', placeholder='질문 제목')
     .form-group(class = 'selectbar')
         select.form-control#selectbar(name='category')
             option(value="default") 조건을 선택해주세요.
@@ -18,9 +21,8 @@ form#form-task.form-inline(class='surveys')
     .addSelector
     .others
         label
+    hr
     .addQuest
-    .actions#reset
-        button.btn.btn-default.btn-lg.btn-block(type='button') 다시작성
     .actions    
         button#plus-quest.btn.btn-success.btn-lg.btn-block(type='button') 문항추가
     .actions

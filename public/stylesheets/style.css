@@ -19,6 +19,16 @@ form.surveys {
     box-sizing: border-box; }
   form.surveys .actions button {
     margin-top: 1em; }
+  form.surveys .addQuest label {
+    width: 100%; }
+    form.surveys .addQuest label input[type='text'] {
+      width: 80%;
+      margin-left: 3em; }
+  form.surveys .addQuest > #shortText {
+    width: 80%; }
+  form.surveys .addQuest > textarea {
+    width: 100%;
+    height: 10em; }
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;

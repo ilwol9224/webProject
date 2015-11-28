@@ -29,20 +29,34 @@ var SurveyController = function() {
                     x.setAttribute("type", "checkbox");
                     $(".others > label").append(x).append("기타");
                 }
+                else if(selected == "shortText") {
+                    var text = document.createElement('INPUT');
+                    text.setAttribute('placeholder', '답변입력');
+                    text.setAttribute('id', 'shortText');
+                    $('.addQuest').append(text);
+                }
                 else {
-                    // reset();
+                    var longText = document.createElement('TEXTAREA');
+                    longText.setAttribute('placeholder', '의견입력');
+                    $('.addQuest').append(longText);
                 }
 
                 $('#addButton').click(function(event) {
                     /* Act on the event */
-                    var inp = document.createElement("INPUT");
-                    inp.setAttribute('type', 'text');
-                    inp.setAttribute('size', '100');
-                    $('.addQuest').append(inp);
+                    var rad = document.createElement("INPUT");
+                    var lab = document.createElement("LABEL");
+                    var text = document.createElement("INPUT");
+                    if (document.getElementById("selectbar").value == "multiple-one")
+                        rad.setAttribute('type', 'radio');
+                    else
+                        rad.setAttribute('type', 'checkbox');
+                    rad.setAttribute('name', 'chooseOne');
+                    text.setAttribute('type', 'text');
+                    $('.addQuest').append(lab);
+                    $('.addQuest > label:last').append(rad).append(text);
                 });
 
             });
-
 
             $("#plus-quest").click(function(event) {
                 /* Act on the event */

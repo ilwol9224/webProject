@@ -26,4 +26,18 @@ form.surveys {
   .actions button {
     margin-top: 1em;
   }
+  .addQuest label {
+      width: 100%;
+      input[type='text']{
+          width: 80%;
+          margin-left: 3em;
+      }
+  }
+  .addQuest > #shortText{
+      width: 80%;
+  }
+  .addQuest > textarea {
+      width: 100%;
+      height: 10em;
+  }
 }
