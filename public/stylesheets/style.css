@@ -18,20 +18,25 @@ form.surveys {
   form.surveys .actions button {
     margin-top: 1em;
     margin-bottom: 3em; }
-  form.surveys #plusOpinion {
-    margin-left: 4em;
-    width: 80%; }
+
   form.surveys .addQuest label {
     width: 100%; }
   form.surveys .addQuest input[type='text'] {
     width: 80%;
     margin-left: 3em; }
-  form.surveys .addQuest > #shortText {
+  form.surveys .addQuest #shortText {
     width: 80%; }
-  form.surveys .addQuest > textarea {
+  form.surveys .addQuest textarea {
     width: 100%;
     height: 10em; }
-
+  .selectExplain {
+      width: 80%; }
+  .questResult label {
+      margin-left: 3em;
+      width: 100%; }
+  #plusOpinion {
+    margin-left: 4em;
+    width: 80%; }
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin-top: 50px;

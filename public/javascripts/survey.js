@@ -9,6 +9,7 @@ var SurveyController = function() {
         function createOthers(){
             var input = document.createElement("INPUT");
             input.setAttribute('id', 'plusOpinion');
+            // input.setAttribute('class', 'selectExplain');
             $('.addQuest').append(input);
         }
 
@@ -41,11 +42,13 @@ var SurveyController = function() {
                     var text = document.createElement('INPUT');
                     text.setAttribute('placeholder', '답변입력');
                     text.setAttribute('id', 'shortText');
+                    text.setAttribute('class', 'selectExplain');
                     $('.addQuest').append(text);
                 }
                 else {
                     var longText = document.createElement('TEXTAREA');
                     longText.setAttribute('placeholder', '의견입력');
+                    longText.setAttribute('class', 'selectExplain');
                     $('.addQuest').append(longText);
                 }
 
@@ -59,11 +62,12 @@ var SurveyController = function() {
                     else
                         choose.setAttribute('type', 'checkbox');
                     choose.setAttribute('name', 'chooseOne');
+                    text.setAttribute('class', 'selectExplain');
                     text.setAttribute('type', 'text');
                     $('.addQuest').append(lab);
                     $('.addQuest > label:last').append(choose).append(text);
 
-                    if ($('#plusOpinion').length) {
+                    if ($('.addQuest #plusOpinion').length) {
                         $('.addQuest > #plusOpinion').remove();
                         createOthers();
                     }
@@ -84,7 +88,7 @@ var SurveyController = function() {
                 //제목과 질문문항 복사
                 $('.submain').clone().appendTo('.questResult').prop('class', 'quest'+questID);
                 $('.addQuest').clone().appendTo('.questResult').prop('class', 'answer'+questID);
-                $('.questResult #plusOpinion').attr('id', 'others'+questID);
+                // $('.questResult #plusOpinion').attr('id', 'others'+questID);
                 questID++;
             });
 
