@@ -9,7 +9,7 @@ var SurveyController = function() {
         function createOthers(){
             var input = document.createElement("INPUT");
             input.setAttribute('id', 'plusOpinion');
-            // input.setAttribute('class', 'selectExplain');
+            input.setAttribute('class', 'plusOpinion');
             $('.addQuest').append(input);
         }
 
@@ -75,7 +75,6 @@ var SurveyController = function() {
 
                 $('.others').change(function(event) {
                     /* Act on the event */
-                    console.log("entered1111111");
                     var self = $(this);
                     if(self.is(':checked')){
                         createOthers();
@@ -86,9 +85,11 @@ var SurveyController = function() {
 
             $("#plus-quest").click(function(event) {
                 //제목과 질문문항 복사
+                var binder = document.createElement("DIV");
+                binder.setAttribute('class', 'result'+questID);
                 $('.submain').clone().appendTo('.questResult').prop('class', 'quest'+questID);
                 $('.addQuest').clone().appendTo('.questResult').prop('class', 'answer'+questID);
-                // $('.questResult #plusOpinion').attr('id', 'others'+questID);
+                $('.questResult #plusOpinion').attr('id', 'others'+questID);
                 questID++;
             });
 

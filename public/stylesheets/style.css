@@ -18,7 +18,9 @@ form.surveys {
   form.surveys .actions button {
     margin-top: 1em;
     margin-bottom: 3em; }
-
+  form.surveys .plusOpinion {
+    margin-left: 4em;
+    width: 80%; }
   form.surveys .addQuest label {
     width: 100%; }
   form.surveys .addQuest input[type='text'] {
@@ -26,17 +28,16 @@ form.surveys {
     margin-left: 3em; }
   form.surveys .addQuest #shortText {
     width: 80%; }
-  form.surveys .addQuest textarea {
+  form.surveys .addQuest .addQuest > textarea {
     width: 100%;
     height: 10em; }
-  .selectExplain {
-      width: 80%; }
-  .questResult label {
-      margin-left: 3em;
-      width: 100%; }
-  #plusOpinion {
-    margin-left: 4em;
+  form.surveys .selectExplain {
+    margin-left: 3em;
     width: 80%; }
+  form.surveys .questResult label {
+    width: 100%; }
+
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin-top: 50px;
