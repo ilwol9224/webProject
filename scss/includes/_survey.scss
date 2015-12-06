@@ -2,32 +2,42 @@ form.surveys {
   width: 100%;
   margin: 0 0 1em 0;
   padding: 1em;
-  background: #FDFAC2;
+  background: #BDBEC3;
   .main {
     input[type='text'] {
       font-size: 1.4em;
-      border: 5px solid #FF7A88;
+    //   border: 5px solid #8BD3EE;
       padding: 0.5em 1em;
       margin-bottom: 1em;
       width: 100%;
       box-sizing: border-box;
     }
   }
-  .submain {
-    input[type='text'] {
+  // .submain {
+  //   input[type='text'] {
+  //
+  //   }
+  // }
+  .question {
       font-size: 1em;
-      border: 2px solid #FFAB24;
+    //   border: 2px solid #FFAB24;
       padding: 0.5em 1em;
       margin-bottom: 1em;
       width: 100%;
       box-sizing: border-box;
-    }
   }
   .actions button {
     margin-top: 1em;
+    margin-bottom: 3em;
+  }
+  #plusOpinion{
+      margin-left: 4em;
+      width: 80%;
   }
   .addQuest label {
       width: 100%;
+  }
+  .addQuest {
       input[type='text']{
           width: 80%;
           margin-left: 3em;

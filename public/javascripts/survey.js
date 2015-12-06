@@ -1,18 +1,20 @@
 var SurveyController = function() {
+    var questID = 1;
         function resetAll(){
-            $('.others > label').empty();
-            $('.addSelector').empty();
+            $('.addingSelector').empty();
             document.getElementById('selectbar').value = "default";
             $('.addQuest').empty();
             $('.selectbar').fadeIn();
-            $('.plusOpinion').remove();
-            $('.others').fadeIn();
+        }
+        function createOthers(){
+            var input = document.createElement("INPUT");
+            input.setAttribute('id', 'plusOpinion');
+            $('.addQuest').append(input);
         }
 
         var Constructor = function () {
             $('#reset').click(function(event) {
                 /* Act on the event */
-
                 resetAll();
             });
 
@@ -26,11 +28,14 @@ var SurveyController = function() {
                     butt.setAttribute('id', 'addButton');
                     butt.setAttribute('type', 'button');
                     butt.innerHTML = "선택지추가 (" + selected + ")";
-                    $(".addSelector").append(butt);
+                    $(".addingSelector").append(butt);
 
-                    var x = document.createElement("INPUT");
-                    x.setAttribute("type", "checkbox");
-                    $(".others > label").append(x).append("기타");
+                    var x = $("<input type='checkbox'>");
+                    var lab = $("<label></label>");
+                    x.attr('class', 'others');
+                    lab.attr('class', 'others' );
+                    lab.append(x).append('기타');
+                    $(".addingSelector").append(lab);
                 }
                 else if(selected == "shortText") {
                     var text = document.createElement('INPUT');
@@ -44,37 +49,43 @@ var SurveyController = function() {
                     $('.addQuest').append(longText);
                 }
 
-                $('.others :checkbox').click(function(event) {
-                    /* Act on the event */
-                    var self = $(this);
-                    if(self.is(':checked')){
-                        var input = document.createElement("INPUT");
-                        input.setAttribute('class', 'plusOpinion');
-                        $('.addQuest').after(input);
-                        $('.others').fadeOut();
-                    }
-                });
-
                 $('#addButton').click(function(event) {
                     /* Act on the event */
-                    var rad = document.createElement("INPUT");
+                    var choose = document.createElement("INPUT");
                     var lab = document.createElement("LABEL");
                     var text = document.createElement("INPUT");
                     if (document.getElementById("selectbar").value == "multiple-one")
-                        rad.setAttribute('type', 'radio');
+                        choose.setAttribute('type', 'radio');
                     else
-                        rad.setAttribute('type', 'checkbox');
-                    rad.setAttribute('name', 'chooseOne');
+                        choose.setAttribute('type', 'checkbox');
+                    choose.setAttribute('name', 'chooseOne');
                     text.setAttribute('type', 'text');
                     $('.addQuest').append(lab);
-                    $('.addQuest > label:last').append(rad).append(text);
+                    $('.addQuest > label:last').append(choose).append(text);
+
+                    if ($('#plusOpinion').length) {
+                        $('.addQuest > #plusOpinion').remove();
+                        createOthers();
+                    }
                 });
 
+                $('.others').change(function(event) {
+                    /* Act on the event */
+                    console.log("entered1111111");
+                    var self = $(this);
+                    if(self.is(':checked')){
+                        createOthers();
+                        $('.others').fadeOut();
+                    }
+                });
             });
 
             $("#plus-quest").click(function(event) {
-                /* Act on the event */
-                alert("test!");
+                //제목과 질문문항 복사
+                $('.submain').clone().appendTo('.questResult').prop('class', 'quest'+questID);
+                $('.addQuest').clone().appendTo('.questResult').prop('class', 'answer'+questID);
+                $('.questResult #plusOpinion').attr('id', 'others'+questID);
+                questID++;
             });
 
         };

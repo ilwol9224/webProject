@@ -1,16 +1,16 @@
 form.form-inline(class='surveys')
   .form
     .main
-      input(type='text', id='title', name='title', placeholder='설문지-제목')
-      input(type='text', id='content', name='content', placeholder='설명')
+      input(for='title' type='text', id='title', name='title', placeholder='설문지-제목')
+      input(for='content' type='text', id='content', name='content', placeholder='설명')
       hr
       | 
       | 
     .actions#reset
-        button.btn.btn-default.btn-lg.btn-block(type='button') 다시작성  
+        button.btn.btn-default.btn-lg.btn-block(type='button') 재입력  
     hr
     .submain
-        input(type='text', id='content', name='content', placeholder='질문 제목')
+        input(class='question' type='text', id='content', name='content', placeholder='질문 제목')
     .form-group(class = 'selectbar')
         select.form-control#selectbar(name='category')
             option(value="default") 조건을 선택해주세요.
@@ -18,15 +18,14 @@ form.form-inline(class='surveys')
             option(value='multiple-many') 객관식(복수선택형)
             option(value='shortText') 단일입력
             option(value='longText') 의견입력
-    .addSelector
-    .others
-        label
+    .addingSelector
     hr
     .addQuest
     .actions    
         button#plus-quest.btn.btn-success.btn-lg.btn-block(type='button') 문항추가
+    .questResult
     .actions
-        button#post-survey.btn.btn-primary.btn-lg.btn-block(type='button') 작성완료
+        button#post-survey.btn.btn-primary.btn-lg.btn-block(type='submit') 작성완료
 
 script.
     $(function() {
