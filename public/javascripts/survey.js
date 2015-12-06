@@ -85,11 +85,13 @@ var SurveyController = function() {
 
             $("#plus-quest").click(function(event) {
                 //제목과 질문문항 복사
-                var binder = document.createElement("DIV");
-                binder.setAttribute('class', 'result'+questID);
-                $('.submain').clone().appendTo('.questResult').prop('class', 'quest'+questID);
-                $('.addQuest').clone().appendTo('.questResult').prop('class', 'answer'+questID);
-                $('.questResult #plusOpinion').attr('id', 'others'+questID);
+                var result = document.createElement("DIV");
+                var quest = $('.submain').clone().attr('class', 'result'+questID);
+                var answer = $('.addQuest').clone().attr('class', 'result'+questID);
+                result.setAttribute('class', 'result'+questID);
+                $('.questResult').append(result);
+                $(result).append(quest);
+                $(result).append(answer);
                 questID++;
             });
 
