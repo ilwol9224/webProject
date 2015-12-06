@@ -92,6 +92,7 @@ var SurveyController = function() {
                 $('.questResult').append(result);
                 $(result).append(quest);
                 $(result).append(answer);
+                $(result).append('<hr>');
                 questID++;
             });
 
