@@ -9,18 +9,8 @@ var schema = new Schema({
   user: {type: Schema.Types.ObjectId, index: true, required: true}
 }, {
   toJSON: {
-    virtuals: true,
-    transform: function(survey) {
-      return {
-        id: task._id.toString(),
-        category: survey.category,
-        title: survey.title,
-        content: survey.content,
-        quest: survey.quest,
-      };
-    }
-  },
-  toObject: {virtuals: true}
+    virtuals: true },
+    toObject: {virtuals: true}
 });
 
 var Survey = mongoose.model('Survey', schema);

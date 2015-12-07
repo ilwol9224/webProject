@@ -11,12 +11,14 @@ function needAuth(req, res, next) {
   }
 }
 
-router.get('/', function(req, res, next) {
+router.get('/new', function(req, res, next) {
   Survey.find({}, function(err, surveys) {
     if (err) {
       return next(err);
     }
-    res.render('survey', {survey: surveys});
+    res.render('survey/new', {survey: surveys});
   });
 });
+
+
 module.exports = router;

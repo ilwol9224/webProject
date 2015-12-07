@@ -86,8 +86,8 @@ var SurveyController = function() {
             $("#plus-quest").click(function(event) {
                 //제목과 질문문항 복사
                 var result = document.createElement("DIV");
-                var quest = $('.submain').clone().attr('class', 'result'+questID);
-                var answer = $('.addQuest').clone().attr('class', 'result'+questID);
+                var quest = $('.submain').clone().attr('class', questID);
+                var answer = $('.addQuest').clone().attr('class', questID);
                 result.setAttribute('class', 'result'+questID);
                 $('.questResult').append(result);
                 $(result).append(quest);
