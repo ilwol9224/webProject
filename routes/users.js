@@ -12,12 +12,6 @@ router.get('/', needAuth, function(req, res, next) {
   });
 });
 
-router.get('/', function(req, res, next){
-    if (err) {
-      return next(err);
-    }
-    res.render('index');
-});
 function needAuth(req, res, next) {
   if (req.isAuthenticated()) {
     next();
