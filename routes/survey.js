@@ -49,8 +49,16 @@ router.get('/:id', function(req, res, next){
         if(err){
             return next(err);
         }
-        req.flash('success', '설문지가 등록되었습니다.');
         res.render('survey/show', {survey: survey});
+    });
+});
+
+router.delete('/:id', function(req, res, next){
+    Survey.findOneAndRemove({_id: req.params.id}, function(err){
+        if(err){
+            return next(err);
+        }
+        res.redirect('/survey');
     });
 });
 

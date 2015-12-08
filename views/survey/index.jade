@@ -8,13 +8,29 @@ block content
             tr
                 th 설문제목
                 th 설문설명
-                th 댓글
-                th 작성일
+                th 
+                //- th 댓글
+                //- th 작성일
             each survey in surveys
               tr
                 td
-                  a(href='/survey/#{survey.id}')= survey.title
+                    a(href='/survey/#{survey.id}')= survey.title
                 td= survey.content
                 //- td= post.numComment
-
+                td
+                    a.btn.btn-xs.btn-default(data-id=survey.id, class='delete') 삭제
+      
+                //-   a.btn.btn-xs.btn-default(href='/posts/#{post.id}/edit') 수정
+                  | 
         a.btn.btn-primary(href='/survey/new') 설문지작성
+        
+        form#deleteForm(style='display:none', method="POST")
+        
+        script(type='text/javascript').
+          $(".delete").click(function(e) {
+            var id = $(e.currentTarget).data('id');
+            if (confirm('정말 삭제하시겠습니까?')) {
+              $("#deleteForm").attr('action', "/survey/" + id + "?_method=DELETE").submit();          
+            }
+            return false;
+          });
