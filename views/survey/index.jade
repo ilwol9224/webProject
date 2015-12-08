@@ -1,5 +1,20 @@
 extends ../layout
-
+    
 block content
     .container
-        h1 test
+        h1 설문지(설문용)
+
+        table.table
+            tr
+                th 설문제목
+                th 설문설명
+                th 댓글
+                th 작성일
+            each survey in surveys
+              tr
+                td
+                  a(href='/survey/#{survey.id}')= survey.title
+                td= survey.content
+                //- td= post.numComment
+
+        a.btn.btn-primary(href='/survey/new') 설문지작성

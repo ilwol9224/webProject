@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    .container
+        h1= survey.title
+        //- h3 by #{user.email}
+        hr
+        table.table
+            tr
+                th title
+                td= survey.title
+        
+            tr
+                th content
+                td= survey.content

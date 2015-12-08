@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     .container
-        form.form-inline(class='surveys')
+        form.form-inline(class='surveys', action='/survey', method='POST')
           .form
             .main
               input(for='title' type='text', id='title', name='title', placeholder='설문지-제목')
