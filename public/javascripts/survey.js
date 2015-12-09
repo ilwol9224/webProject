@@ -42,13 +42,13 @@ var SurveyController = function() {
                     var text = document.createElement('INPUT');
                     text.setAttribute('placeholder', '답변입력');
                     text.setAttribute('id', 'shortText');
-                    text.setAttribute('class', 'selectExplain');
+                    text.setAttribute('for', 'shortAnswer');
                     $('.addQuest').append(text);
                 }
                 else {
                     var longText = document.createElement('TEXTAREA');
+                    longText.setAttribute('for', 'longAnswer')
                     longText.setAttribute('placeholder', '의견입력');
-                    longText.setAttribute('class', 'selectExplain');
                     $('.addQuest').append(longText);
                 }
 
@@ -57,12 +57,16 @@ var SurveyController = function() {
                     var choose = document.createElement("INPUT");
                     var lab = document.createElement("LABEL");
                     var text = document.createElement("INPUT");
-                    if (document.getElementById("selectbar").value == "multiple-one")
+                    if (document.getElementById("selectbar").value == "multiple-one"){
                         choose.setAttribute('type', 'radio');
-                    else
+                        text.setAttribute('class', 'selectExplain');
+                        choose.setAttribute('name', 'chooseOne');
+                    }
+                    else if(document.getElementById('selectbar').value == 'multiple-many'){
                         choose.setAttribute('type', 'checkbox');
-                    choose.setAttribute('name', 'chooseOne');
-                    text.setAttribute('class', 'selectExplain');
+                        text.setAttribute('class', 'selectExplain');
+                        choose.setAttribute('name', 'chooseOne');
+                    }
                     text.setAttribute('type', 'text');
                     $('.addQuest').append(lab);
                     $('.addQuest > label:last').append(choose).append(text);
@@ -94,6 +98,7 @@ var SurveyController = function() {
                 $(result).append(answer);
                 $(result).append('<hr>');
                 questID++;
+                resetAll();
             });
 
         };

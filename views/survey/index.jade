@@ -14,7 +14,7 @@ block content
             each survey in surveys
               tr
                 td
-                    a(href='/survey/#{survey.id}')= survey.title
+                    a(href='/survey/show/#{survey.id}')= survey.title
                 td= survey.content
                 //- td= post.numComment
                 td

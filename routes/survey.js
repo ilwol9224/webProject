@@ -44,7 +44,7 @@ router.post('/', function(req, res, next) {
     });
 });
 
-router.get('/:id', function(req, res, next){
+router.get('/show/:id', function(req, res, next){
     Survey.findById(req.params.id, function(err, survey){
         if(err){
             return next(err);
