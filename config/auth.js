@@ -41,7 +41,7 @@ var LocalStrategy = require('passport-local').Strategy,
 
     clientID : '797117657066339',
     clientSecret : '1f85f387a36506bcc7198fd59987a39d',
-    callbackURL : 'https://still-dusk-3688.herokuapp.com/',
+    callbackURL : 'https://still-dusk-3688.herokuapp.com/auth/facebook/callback',
     profileFields : ["emails", "displayName", "name", "photos"]
   }, function(token, refreshToken, profile, done) {
     console.log(profile);
